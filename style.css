@@ -1,0 +1,115 @@
+/* Базовые переменные для смены тем */
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f5f5f5;
+    --accent-color: #e50914;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --accent-color: #ff3333;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --shadow-hover: rgba(255, 255, 255, 0.2);
+}
+
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка и Подвал (Flexbox) */
+.header, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--card-bg);
+}
+
+.footer {
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Кнопка */
+.btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Баннер */
+.banner img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Сетка карточек (Grid) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Карточка */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 15px;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3, .card p {
+    padding: 0 15px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Обертка для зума картинки */
+.card-img-wrap {
+    overflow: hidden;
+    height: 200px;
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* Hover-эффекты */
+.card:hover {
+    box-shadow: 0 10px 20px var(--shadow-hover);
+}
+
+.card:hover .card-img-wrap img {
+    transform: scale(1.1); /* Увеличение картинки при наведении */
+}
